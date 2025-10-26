@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interviewer Dashboard - Interview MS</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/interviewer-dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li class="active"><a href="interviewer-dashboard.html" class="side-link">Dashboard</a></li>
+          <li><a href="my-interviews.html" class="side-link">My Interviews</a></li>
+          <li><a href="feedbacks.html" class="side-link">Feedbacks</a></li>
+          <li><a href="candidate-profiles.html" class="side-link">Candidate Profiles</a></li>
+          <li><a href="settings.html" class="side-link">Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>Interviewer Dashboard</h1>
+        <div class="header-actions">
+          <div class="user-profile">
+            <span class="notification">🔔<span class="badge">3</span></span>
+            <div class="avatar">
+              <img src="../images/avatar-placeholder.png" alt="Dr. Michael Roberts" />
+              <span>Senior Interviewer</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="metrics">
+        <div class="metric">
+          <div class="m-title">Total Interviews</div>
+          <div class="m-value">24</div>
+          <div class="trend up">+12% from last month</div>
+        </div>
+        <div class="metric">
+          <div class="m-title">Interviews Today</div>
+          <div class="m-value">3</div>
+          <div class="next">Next at 2:00 PM</div>
+        </div>
+        <div class="metric">
+          <div class="m-title">Pending Feedbacks</div>
+          <div class="m-value">5</div>
+          <div class="overdue">2 overdue</div>
+        </div>
+        <div class="metric">
+          <div class="m-title">Completed</div>
+          <div class="m-value">16</div>
+          <div class="trend">This month</div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <div class="main-content">
+          <section class="upcoming">
+            <h2>Today's Interviews</h2>
+            <div class="list">
+              <div class="item">
+                <div class="meta">Sarah Johnson</div>
+                <div class="sub">Senior Product Designer - Technical Round</div>
+                <div class="time">2:00 PM</div>
+                <div class="actions">
+                  <span class="status scheduled">Online</span>
+                  <button class="btn primary">Join Interview</button>
+                </div>
+              </div>
+              <div class="item">
+                <div class="meta">David Chen</div>
+                <div class="sub">Frontend Developer - System Design</div>
+                <div class="time">3:30 PM</div>
+                <div class="actions">
+                  <span class="status confirmed">In Person</span>
+                  <button class="btn primary">View Details</button>
+                </div>
+              </div>
+              <div class="item">
+                <div class="meta">Emily Rodriguez</div>
+                <div class="sub">Marketing Manager - Final Round</div>
+                <div class="time">5:00 PM</div>
+                <div class="actions">
+                  <span class="status scheduled">Online</span>
+                  <button class="btn primary">Join Interview</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="feedback-required">
+            <h2>Pending Feedbacks</h2>
+            <div class="list">
+              <div class="item">
+                <div class="meta">Alex Thompson</div>
+                <div class="sub">Data Analyst - Technical Round</div>
+                <div class="time">Interviewed 2 days ago</div>
+                <div class="actions">
+                  <button class="btn warn">Submit Feedback</button>
+                </div>
+              </div>
+              <div class="item">
+                <div class="meta">James Wilson</div>
+                <div class="sub">Backend Developer - System Design</div>
+                <div class="time">Interviewed yesterday</div>
+                <div class="actions">
+                  <button class="btn warn">Submit Feedback</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebar-cards">
+          <div class="card small">
+            <h3>Recent Activity</h3>
+            <ul class="recent">
+              <li>
+                <span>Sarah Johnson's interview scheduled</span>
+                <span class="tag interview">Interview</span>
+              </li>
+              <li>
+                <span>Feedback submitted for Michael Chang</span>
+                <span class="tag review">Review</span>
+              </li>
+              <li>
+                <span>New candidate application</span>
+                <span class="tag applied">Applied</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Important Notes</h3>
+            <ul class="notes">
+              <li>
+                <div>Technical assessment for frontend role needs review</div>
+                <div class="n-sub">Due in 2 days</div>
+                <button class="dismiss">Dismiss</button>
+              </li>
+              <li>
+                <div>Update interview questions for system design round</div>
+                <div class="n-sub">High priority</div>
+                <button class="dismiss">Dismiss</button>
+              </li>
+              <li>
+                <div>Team meeting about new hiring process</div>
+                <div class="n-sub">Tomorrow, 11:00 AM</div>
+                <button class="dismiss">Dismiss</button>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/interviewer-dashboard.js"></script>
+</body>
+</html>

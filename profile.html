@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Profile - Interview MS</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="active"><a href="profile.html">My Profile</a></li>
+          <li><a href="job-openings.html">Jobs</a></li>
+          <li><a href="my-applications.html" class="side-link">My Applications</a></li>
+          <li><a href="interviews.html" class="side-link">Interviews</a></li>
+          <li><a href="results.html" class="side-link">Results</a></li>
+          <!-- <li><a href="signup.html">Settings</a></li> -->
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>My Profile</h1>
+        <div class="header-actions"><button id="editBtn" class="btn">Edit Profile</button></div>
+      </header>
+
+      <section class="profile-card">
+        <div class="profile-top">
+          <div class="avatar-wrap">
+            <img id="avatarImg" src="images/avatar-placeholder.png" alt="avatar">
+            <input id="avatarInput" type="file" accept="image/*" style="display:none">
+            <button id="changeAvatar" class="link">Change</button>
+          </div>
+          <div class="profile-name">
+            <h2 id="profileName">Your Name</h2>
+            <div id="profileRole">Frontend Developer</div>
+          </div>
+        </div>
+
+        <form id="profileForm">
+          <div class="card">
+            <h3>Personal Information</h3>
+            <div class="form-grid">
+              <label>Full Name<input id="fullName" type="text"></label>
+              <label>Email Address<input id="email" type="email"></label>
+              <label>Phone Number<input id="phone" type="text"></label>
+              <label>Date of Birth<input id="dob" type="date"></label>
+              <label class="wide">Address<textarea id="address"></textarea></label>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Education <button type="button" id="addEdu" class="small">+ Add Education</button></h3>
+            <div id="educationList"></div>
+          </div>
+
+          <div class="card">
+            <h3>Work Experience <button type="button" id="addExp" class="small">+ Add Experience</button></h3>
+            <div id="experienceList"></div>
+          </div>
+
+          <div class="card">
+            <h3>Skills</h3>
+            <div class="skills">
+              <div class="chips" id="skillsChips"></div>
+              <div class="skill-add">
+                <input id="skillInput" placeholder="Add a skill">
+                <button id="addSkill" type="button" class="small">Add</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Resume</h3>
+            <div class="resume-upload">
+              <input id="resumeInput" type="file" accept="application/pdf" style="display:none">
+              <div id="resumeDrop" class="dropzone">Click to upload your resume (PDF, max 5MB)</div>
+              <div id="resumeList"></div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="saveBtn" class="btn primary" type="button">Save Profile</button>
+            <span id="saveMessage" class="save-msg" aria-live="polite"></span>
+          </div>
+        </form>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

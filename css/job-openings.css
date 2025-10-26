@@ -1,0 +1,38 @@
+/* Job Openings styles */
+@import url('../css/dashboard.css'); /* reuse base styles */
+
+/* override/extend */
+.search-filters{display:flex;flex-direction:column;gap:12px}
+.search-filters input{padding:12px;border-radius:8px;border:1px solid #e6eef8}
+.filters{display:flex;gap:12px;margin-top:6px}
+.filters select{flex:1;padding:10px;border-radius:8px;border:1px solid #e6eef8;background:#fff}
+.jobs-area{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.job-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(16,24,40,0.04);display:flex;flex-direction:column;gap:10px}
+.job-card .top{display:flex;justify-content:space-between;align-items:start}
+.job-card h3{margin:0}
+.job-meta{color:#64748b;font-size:13px}
+.job-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:#eef2ff;color:#2563eb;padding:6px 8px;border-radius:8px;font-size:12px}
+.job-card .actions{display:flex;justify-content:flex-end}
+.btn{padding:8px 12px;border-radius:8px;border:0}
+.btn.primary{background:#2563eb;color:#fff}
+.pagination{display:flex;gap:8px;justify-content:center;margin:18px 0}
+.pagination button{padding:8px 10px;border-radius:6px;border:1px solid #e6eef8;background:#fff}
+.pagination button.active{background:#2563eb;color:#fff;border-color:#2563eb}
+
+/* modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.5)}
+.modal[aria-hidden="false"]{display:flex}
+.modal-inner{background:#fff;padding:24px;border-radius:12px;max-width:720px;max-height:80vh;overflow:auto;position:relative}
+.close{position:absolute;top:12px;right:12px;border:0;background:transparent;font-size:20px}
+
+@media(max-width:900px){
+  .jobs-area{grid-template-columns:1fr}
+  .filters{flex-direction:column}
+}
+
+.header-actions .user-name{margin-right:12px;font-weight:600}
+.btn.logout{background:transparent;border:1px solid #e6eef8;padding:6px 10px;border-radius:8px}
+
+.sidebar-footer{padding:18px;margin-top:auto}
+.logout-cta{display:block;width:100%;background:var(--accent);color:#fff;padding:10px;border-radius:8px;border:0;font-weight:700}

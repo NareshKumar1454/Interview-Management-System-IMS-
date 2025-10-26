@@ -1,0 +1,33 @@
+/* Page-specific styles for My Applications */
+.applications-area{padding:18px}
+.app-controls{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.app-controls input[type=search]{flex:1;padding:10px 12px;border-radius:8px;border:1px solid #e6eef8;background:#fff}
+.app-controls select{padding:10px 12px;border-radius:8px;border:1px solid #e6eef8;background:#fff}
+.apps-table{width:100%;border-collapse:collapse}
+.apps-table thead th{text-align:left;color:#334155;padding:12px;border-bottom:1px solid #f1f5f9}
+.apps-table tbody td{padding:12px;border-bottom:1px solid #f8fafc;color:#0f172a}
+.status-badge{padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+.status-applied{background:#eef2ff;color:#1e40af}
+.status-interview-scheduled{background:#fff7ed;color:#b45309}
+.status-shortlisted{background:#ecfdf5;color:#059669}
+.status-offer-received{background:#eef2ff;color:#7c3aed}
+.status-rejected{background:#fff0f6;color:#be185d}
+.status-withdrawn{background:#f3f4f6;color:#374151}
+.actions a{margin-right:10px;color:var(--accent);cursor:pointer;text-decoration:none}
+.actions button{background:transparent;border:0;color:#ef4444;cursor:pointer}
+.recommended-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+.rec-card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 8px 24px rgba(16,24,40,0.04)}
+.rec-card h4{margin:0 0 8px}
+.rec-card p{color:var(--muted);font-size:14px;margin:0 0 12px}
+.rec-meta{display:flex;gap:12px;color:var(--muted);font-size:13px;margin-bottom:12px}
+.rec-card .btn{padding:8px 12px;border-radius:8px}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.5);z-index:90}
+.modal .box{background:#fff;padding:18px;border-radius:10px;max-width:600px;width:94%}
+.modal.show{display:flex}
+
+@media(max-width:900px){
+  .recommended-grid{grid-template-columns:1fr}
+  .app-controls{flex-direction:column;align-items:stretch}
+}

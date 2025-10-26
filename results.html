@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Results & Feedback - Interview MS</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/results.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" class="side-link">Dashboard</a></li>
+          <li><a href="profile.html" class="side-link">My Profile</a></li>
+          <li><a href="job-openings.html" class="side-link">Jobs</a></li>
+          <li><a href="my-applications.html" class="side-link">My Applications</a></li>
+          <li><a href="interviews.html" class="side-link">Interviews</a></li>
+          <li class="active">Results</li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1>Results & Feedback</h1>
+          <p class="sub">View your interview outcomes and feedback from interviewers</p>
+        </div>
+        <div class="header-actions">
+          <div class="icons"></div>
+        </div>
+      </header>
+
+      <div class="results-grid">
+        <section class="results-section">
+          <h2>Interview Results</h2>
+          <div id="resultsList" class="results-list">
+            <!-- Results injected by JS -->
+          </div>
+        </section>
+
+        <aside class="performance-sidebar">
+          <section class="performance-card">
+            <h3>Performance Summary</h3>
+            <div class="rating-circle">
+              <div class="rating-value">4.1</div>
+              <div class="rating-label">Overall Rating</div>
+              <div class="rating-stars">★★★★☆</div>
+            </div>
+
+            <div class="status-counts">
+              <div class="status-item">
+                <span class="count selected">1</span>
+                <span class="label">Selected</span>
+              </div>
+              <div class="status-item">
+                <span class="count rejected">1</span>
+                <span class="label">Rejected</span>
+              </div>
+              <div class="status-item">
+                <span class="count pending">1</span>
+                <span class="label">Pending</span>
+              </div>
+              <div class="status-item">
+                <span class="count onhold">1</span>
+                <span class="label">On Hold</span>
+              </div>
+            </div>
+
+            <div class="skills-ratings">
+              <h4>Skill Ratings</h4>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span>Communication</span>
+                  <span class="score">4.5/5</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span>Technical Skills</span>
+                  <span class="score">3.8/5</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 76%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span>Problem Solving</span>
+                  <span class="score">4.2/5</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 84%"></div>
+                </div>
+              </div>
+            </div>
+
+            <section class="improvement-tips">
+              <h4>Improvement Tips</h4>
+              <ul class="tips-list">
+                <li>
+                  <span class="tip-icon">💻</span>
+                  Practice more coding challenges
+                </li>
+                <li>
+                  <span class="tip-icon">🔄</span>
+                  Improve system design knowledge
+                </li>
+              </ul>
+            </section>
+          </section>
+        </aside>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Feedback Modal -->
+  <div id="feedbackModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Interview Feedback</h3>
+      <div class="feedback-details">
+        <!-- Feedback content injected by JS -->
+      </div>
+      <div class="modal-footer">
+        <button id="closeFeedback" class="btn-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/results.js"></script>
+</body>
+</html>

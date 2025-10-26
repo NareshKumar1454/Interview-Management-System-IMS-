@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Candidate Profiles - Interviewer - Interview MS</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/interviewer-candidate-profiles.css">
+  <link rel="stylesheet" href="../css/interviewer-candidate-list.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li><a href="interviewer-dashboard.html" class="side-link">Dashboard</a></li>
+          <li><a href="my-interviews.html" class="side-link">My Interviews</a></li>
+          <li><a href="feedbacks.html" class="side-link">Feedbacks</a></li>
+          <li class="active">Candidate Profiles</li>
+          <li><a href="settings.html" class="side-link">Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>Candidate Profiles</h1>
+        <div class="header-actions">
+          <div class="icons"></div>
+        </div>
+      </header>
+
+      <section class="candidates-area">
+        <div class="card">
+          <h2>Candidate List</h2>
+          <div class="candidate-list">
+            <div class="candidate-item">
+              <div class="candidate-info">
+                <h3>Sarah Johnson</h3>
+                <span class="position">Senior Product Designer</span>
+              </div>
+              <button class="btn primary">View Profile</button>
+            </div>
+            <div class="candidate-item">
+              <div class="candidate-info">
+                <h3>David Chen</h3>
+                <span class="position">Frontend Developer</span>
+              </div>
+              <button class="btn primary">View Profile</button>
+            </div>
+            <div class="candidate-item">
+              <div class="candidate-info">
+                <h3>Emily Rodriguez</h3>
+                <span class="position">Marketing Manager</span>
+              </div>
+              <button class="btn primary">View Profile</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/interviewer-candidate-profiles.js"></script>
+</body>
+</html>

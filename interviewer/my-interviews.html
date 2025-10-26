@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Interviews - Interviewer - Interview MS</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/interviewer-dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li><a href="interviewer-dashboard.html" class="side-link">Dashboard</a></li>
+          <li class="active"><a href="my-interviews.html" class="side-link">My Interviews</a></li>
+          <li><a href="feedbacks.html" class="side-link">Feedbacks</a></li>
+          <li><a href="candidate-profiles.html" class="side-link">Candidate Profiles</a></li>
+          <li><a href="settings.html" class="side-link">Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>My Interviews</h1>
+        <div class="header-actions">
+          <div class="icons"></div>
+        </div>
+      </header>
+      <section class="card" style="margin-top:18px;">
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <div>
+            <label>Status:</label>
+            <select id="filterStatus">
+              <option value="all">All</option>
+              <option value="upcoming">Upcoming</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div>
+            <label>Date:</label>
+            <input type="date" id="filterDate">
+          </div>
+          <div>
+            <label>Department:</label>
+            <select id="filterDept">
+              <option value="all">All Departments</option>
+              <option value="engineering">Engineering</option>
+              <option value="design">Design</option>
+              <option value="marketing">Marketing</option>
+              <option value="data">Analytics</option>
+            </select>
+          </div>
+
+          <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+            <button id="tableView" class="btn outline">Table View</button>
+            <button id="calendarView" class="btn outline">Calendar View</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top:18px;">
+        <div class="table-list" id="interviewListContainer">
+          <!-- list populated by JS -->
+        </div>
+
+        <div id="pagination" style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
+          <!-- pagination controls -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/interviewer-my-interviews.js"></script>
+</body>
+</html>

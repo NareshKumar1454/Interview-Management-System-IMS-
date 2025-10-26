@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Account - Interview Management System</title>
+  <link rel="stylesheet" href="css/signup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="signup-page">
+    <div class="signup-inner container">
+      <div class="left">
+        <div class="illu">
+          <img src="images/signupimage.png" alt="illustration">
+        </div>
+        <h2>Start Your Career Journey</h2>
+        <p>Join thousands of professionals who found their dream job through our platform.</p>
+      </div>
+      <div class="right">
+        <div class="card">
+          <div class="logo">IMS</div>
+          <h3>Create Your Account</h3>
+          <p class="sub">Start your journey to find the perfect job</p>
+
+          <form id="signupForm" class="signup-form" enctype="multipart/form-data">
+            <label class="field">
+              <span>Sign up as</span>
+              <select id="roleSelect">
+                <option>Candidate</option>
+                <option>Interviewer</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Full Name</span>
+              <input id="fullName" type="text" placeholder="Enter your full name" required>
+            </label>
+
+            <label class="field">
+              <span>Email Address</span>
+              <input id="email" type="email" placeholder="Enter your email" required>
+            </label>
+
+            <label class="field">
+              <span>Password</span>
+              <input id="password" type="password" placeholder="Create a password" required>
+            </label>
+
+            <label class="field">
+              <span>Confirm Password</span>
+              <input id="confirmPassword" type="password" placeholder="Confirm your password" required>
+            </label>
+
+            <!-- Resume upload removed as requested -->
+
+            <label class="row terms"><input id="agree" type="checkbox"> I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+
+            <button class="btn primary" type="submit">Create Account</button>
+
+            <p class="foot">Already have an account? <a href="signin.html">Login here</a></p>
+          </form>
+
+          <div class="legal">© 2025 Interview Management System. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/signup.js"></script>
+</body>
+</html>

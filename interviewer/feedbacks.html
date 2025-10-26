@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feedbacks - Interviewer - Interview MS</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/results.css">
+  <link rel="stylesheet" href="../css/interviewer-feedbacks.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li><a href="interviewer-dashboard.html" class="side-link">Dashboard</a></li>
+          <li><a href="my-interviews.html" class="side-link">My Interviews</a></li>
+          <li class="active">Feedbacks</li>
+          <li><a href="candidate-profiles.html" class="side-link">Candidate Profiles</a></li>
+          <li><a href="settings.html" class="side-link">Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>Submit Feedback</h1>
+      </header>
+
+      <section class="feedback-section">
+        <div class="feedback-layout">
+          <div class="feedback-main">
+            <h2>Submit Feedback</h2>
+            <p>Provide your evaluation for the candidate's performance</p>
+            <div class="card interview-summary">
+              <div class="summary-header">
+                <div class="candidate-info">
+                  <div class="avatar" style="background:#e3e7f7;width:56px;height:56px;border-radius:50%;display:inline-block;margin-right:16px;"></div>
+                  <div>
+                    <div class="candidate-name">Sarah Johnson</div>
+                    <div class="candidate-email">sarah.johnson@email.com</div>
+                  </div>
+                </div>
+                <a href="#" class="view-profile">View Full Profile</a>
+              </div>
+              <div class="summary-details">
+                <div><b>Position:</b> Senior Product Designer</div>
+                <div><b>Department:</b> Design</div>
+                <div><b>Interview Round:</b> Technical Round</div>
+                <div><b>Date & Time:</b> Oct 24, 2:00 PM</div>
+                <div><b>Duration:</b> 60 minutes</div>
+                <div><b>Mode:</b> <span style="color:#2563eb;font-weight:600;">Online</span></div>
+              </div>
+            </div>
+
+            <form id="feedbackForm" class="card feedback-form">
+              <h3>Evaluation</h3>
+              <div class="evaluation-list">
+                <div class="eval-item">
+                  <div class="eval-label"><span style="color:#2563eb;">&#128483;</span> Communication Skills</div>
+                  <div class="eval-desc">Clarity, articulation, and listening abilities</div>
+                  <div class="star-rating" data-selected="4">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star selected" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                    <span class="eval-score">4/5</span>
+                  </div>
+                </div>
+                <div class="eval-item">
+                  <div class="eval-label"><span style="color:#22c55e;">&#128187;</span> Technical Knowledge</div>
+                  <div class="eval-desc">Domain expertise and technical competency</div>
+                  <div class="star-rating" data-selected="5">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star selected" data-value="5">&#9733;</span>
+                    <span class="eval-score">5/5</span>
+                  </div>
+                </div>
+                <div class="eval-item">
+                  <div class="eval-label"><span style="color:#a855f7;">&#129504;</span> Problem Solving</div>
+                  <div class="eval-desc">Analytical thinking and solution approach</div>
+                  <div class="star-rating" data-selected="4">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star selected" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                    <span class="eval-score">4/5</span>
+                  </div>
+                </div>
+                <div class="eval-item">
+                  <div class="eval-label"><span style="color:#f59e42;">&#128519;</span> Confidence & Attitude</div>
+                  <div class="eval-desc">Professional demeanor and self-assurance</div>
+                  <div class="star-rating" data-selected="5">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star selected" data-value="5">&#9733;</span>
+                    <span class="eval-score">5/5</span>
+                  </div>
+                </div>
+                <div class="eval-item">
+                  <div class="eval-label"><span style="color:#6366f1;">&#11088;</span> Overall Impression</div>
+                  <div class="eval-desc">General assessment and fit for the role</div>
+                  <div class="star-rating" data-selected="5">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star selected" data-value="5">&#9733;</span>
+                    <span class="eval-score">5/5</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="detailedFeedback"><b>Detailed Feedback</b></label>
+                <textarea id="detailedFeedback" rows="4" placeholder="Write detailed feedback here...">Sarah demonstrated excellent design thinking and problem-solving skills during the technical round. Her portfolio showcased strong UX principles and she articulated her design decisions clearly. She showed good understanding of user research methodologies and design systems. Areas for improvement include more experience with advanced prototyping tools.</textarea>
+              </div>
+              <div class="form-group">
+                <label><b>Final Recommendation</b></label>
+                <div class="recommendation-options">
+                  <label><input type="radio" name="recommendation" value="hire" checked> <span style="color:#22c55e;">●</span> Hire - Candidate meets all requirements</label><br>
+                  <label><input type="radio" name="recommendation" value="hold"> <span style="color:#2563eb;">●</span> Hold / Next Round - Needs further evaluation</label><br>
+                  <label><input type="radio" name="recommendation" value="reject"> <span style="color:#ef4444;">●</span> Reject - Does not meet requirements</label>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="button" id="saveDraftBtn" class="btn">Save as Draft</button>
+                <button type="submit" class="btn primary">Submit Feedback</button>
+              </div>
+            </form>
+          </div>
+          <aside class="feedback-sidebar">
+            <div class="card interview-notes">
+              <h4>Interview Notes</h4>
+              <div class="note blue">Portfolio Review<br><span>Reviewed 3 case studies, strong visual design</span></div>
+              <div class="note green">Design Challenge<br><span>Completed wireframe exercise in 30 minutes</span></div>
+              <div class="note yellow">Questions Asked<br><span>Asked about team collaboration and design systems</span></div>
+            </div>
+            <div class="card rating-guide">
+              <h4>Rating Scale Guide</h4>
+              <div><span class="star">&#9733;</span> Poor - Below expectations</div>
+              <div><span class="star">&#9733;&#9733;</span> Fair - Meets some requirements</div>
+              <div><span class="star">&#9733;&#9733;&#9733;</span> Good - Meets expectations</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/interviewer-feedbacks.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Interview MS</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">Interview MS</div>
+      <nav>
+        <ul>
+          <li class="active">Dashboard</li>
+          <li><a href="profile.html" class="side-link">My Profile</a></li>
+          <li><a href="job-openings.html" class="side-link">Job Openings</a></li>
+          <li><a href="my-applications.html" class="side-link">My Applications</a></li>
+          <li><a href="interviews.html" class="side-link">Interviews</a></li>
+          <li><a href="results.html" class="side-link">Results</a></li>
+          <!-- <li>Settings</li> -->
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="main-header">
+        <h1>Welcome, Naresh Kumar <span class="wave">👋</span></h1>
+      </header>
+
+      <section class="metrics">
+        <div class="metric"> <div class="m-title">Total Applications</div> <div class="m-value">12</div> </div>
+        <div class="metric"> <div class="m-title">Interviews Scheduled</div> <div class="m-value">3</div> </div>
+        <div class="metric"> <div class="m-title">Offers Received</div> <div class="m-value">1</div> </div>
+        <div class="metric"> <div class="m-title">Pending Feedback</div> <div class="m-value">2</div> </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="card upcoming">
+          <h3>Upcoming Interviews</h3>
+          <div class="list">
+            <div class="item">
+              <div class="meta">Senior Frontend Developer</div>
+              <div class="sub">with John Smith — Tomorrow, 2:00 PM</div>
+              <div class="status confirmed">Confirmed</div>
+            </div>
+            <div class="item">
+              <div class="meta">UI/UX Designer</div>
+              <div class="sub">with Design Team — Friday, 10:00 AM</div>
+              <div class="status pending">Pending</div>
+            </div>
+            <div class="item">
+              <div class="meta">Product Manager</div>
+              <div class="sub">with Sarah Wilson — Next Monday, 3:30 PM</div>
+              <div class="status scheduled">Scheduled</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-cards">
+          <div class="card small">
+            <h4>Recent Applications</h4>
+            <ul class="recent">
+              <li>Data Scientist <span class="tag interview">Interview</span></li>
+              <li>Backend Engineer <span class="tag review">Under Review</span></li>
+              <li>DevOps Engineer <span class="tag applied">Applied</span></li>
+              <li>Full Stack Developer <span class="tag rejected">Rejected</span></li>
+            </ul>
+          </div>
+
+          <div class="card small">
+            <h4>Notifications</h4>
+            <ul class="notes">
+              <li><strong>Interview reminder</strong><div class="n-sub">You have an interview tomorrow at 2 PM</div><button class="dismiss">Dismiss</button></li>
+              <li><strong>Application update</strong><div class="n-sub">Your application status has been updated</div><button class="dismiss">Dismiss</button></li>
+              <li><strong>New job match</strong><div class="n-sub">3 new jobs match your profile</div><button class="dismiss">Dismiss</button></li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

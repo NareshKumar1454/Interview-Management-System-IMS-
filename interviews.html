@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Interview Schedule - Interview MS</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/interviews.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" class="side-link">Dashboard</a></li>
+          <li><a href="profile.html" class="side-link">My Profile</a></li>
+          <li><a href="job-openings.html" class="side-link">Jobs</a></li>
+          <li><a href="my-applications.html" class="side-link">My Applications</a></li>
+          <li class="active">Interviews</li>
+          <li><a href="results.html" class="side-link">Results</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>My Interview Schedule</h1>
+        <p class="sub">Track your upcoming and completed interviews</p>
+        <div class="header-actions">
+          <div class="icons"></div>
+        </div>
+      </header>
+
+      <div class="schedule-grid">
+        <section class="calendar-section">
+          <div class="calendar-header">
+            <h2>This Week</h2>
+            <div class="cal-nav">
+              <button id="prevWeek" class="nav-btn">←</button>
+              <button id="nextWeek" class="nav-btn">→</button>
+            </div>
+          </div>
+
+          <div class="calendar">
+            <div class="weekday">MON</div>
+            <div class="weekday">TUE</div>
+            <div class="weekday">WED</div>
+            <div class="weekday">THU</div>
+            <div class="weekday">FRI</div>
+            <div class="weekday">SAT</div>
+            <div class="weekday">SUN</div>
+            <!-- Calendar dates injected by JS -->
+          </div>
+
+          <div id="scheduledInterviews" class="interviews-list">
+            <!-- Interviews injected by JS -->
+          </div>
+        </section>
+
+        <aside class="schedule-sidebar">
+          <section class="reminders">
+            <h3>Upcoming Reminders</h3>
+            <div id="remindersList">
+              <!-- Reminders injected by JS -->
+            </div>
+          </section>
+
+          <section class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="actions-list">
+              <button id="testCameraBtn" class="action-btn">
+                <span class="icon">📸</span>
+                Test Camera & Mic
+              </button>
+              <button id="downloadCalBtn" class="action-btn">
+                <span class="icon">📅</span>
+                Download Calendar
+              </button>
+              <button id="interviewTipsBtn" class="action-btn">
+                <span class="icon">💡</span>
+                Interview Tips
+              </button>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Test Camera Modal -->
+  <div id="cameraModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Camera & Microphone Test</h3>
+      <div class="device-test">
+        <video id="videoPreview" autoplay playsinline></video>
+        <div class="audio-meter">
+          <div id="audioLevel" class="level-bar"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="closeCameraTest">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interview Tips Modal -->
+  <div id="tipsModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Interview Tips</h3>
+      <div class="tips-list">
+        <div class="tip">
+          <h4>Before the Interview</h4>
+          <ul>
+            <li>Test your camera and microphone</li>
+            <li>Find a quiet, well-lit space</li>
+            <li>Review the job description</li>
+            <li>Prepare questions for the interviewer</li>
+          </ul>
+        </div>
+        <div class="tip">
+          <h4>During the Interview</h4>
+          <ul>
+            <li>Maintain eye contact with the camera</li>
+            <li>Listen carefully and take brief notes</li>
+            <li>Speak clearly and concisely</li>
+            <li>Show enthusiasm and engagement</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="closeTips">Got it</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/interviews.js"></script>
+</body>
+</html>

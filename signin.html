@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In - Interview Management System</title>
+  <link rel="stylesheet" href="css/signin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="signin-page">
+    <div class="signin-inner container">
+      <div class="left">
+        <div class="illu">
+          <img src="images\signinimage.png" alt="illustration">
+        </div>
+        <h2>Streamline Your Hiring Process</h2>
+        <p>Join thousands of companies using our Interview Management System to find the best talent.</p>
+      </div>
+      <div class="right">
+        <div class="card">
+          <div class="logo">IMS</div>
+          <h3>Welcome Back</h3>
+          <p class="sub">Sign in to your account to continue</p>
+
+          <div id="sessionNotice" class="card" style="display:none;margin-bottom:12px;padding:12px;background:#fffbeb;border:1px solid #fef3c7;border-radius:8px;">
+            <div id="sessionMessage" style="margin-bottom:8px;color:#92400e;font-weight:600"></div>
+            <div style="display:flex;gap:8px;">
+              <button id="continueBtn" class="btn primary" style="padding:6px 10px;font-size:14px">Continue</button>
+              <button id="switchBtn" class="btn" style="padding:6px 10px;font-size:14px">Switch account</button>
+            </div>
+          </div>
+
+          <form class="signin-form">
+            <label class="field">
+              <span>Login as</span>
+              <select id="roleSelect">
+                <option value="Candidate">Candidate</option>
+                <option value="Interviewer">Interviewer</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Email Address</span>
+              <input type="email" id="email" placeholder="Enter your email">
+            </label>
+
+            <label class="field">
+              <span>Password</span>
+              <input type="password" id="password" placeholder="Enter your password">
+            </label>
+
+            <div class="row between">
+              <label class="checkbox"><input type="checkbox"> Remember me</label>
+              <a class="muted" href="#">Forgot Password?</a>
+            </div>
+
+            <button class="btn primary" id="signinBtn" type="button">Sign In</button>
+
+            <p class="foot">Don't have an account? <a href="signup.html">Sign up</a></p>
+          </form>
+
+          <div class="legal">© 2025 Interview Management System. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/signin.js"></script>
+</body>
+</html>

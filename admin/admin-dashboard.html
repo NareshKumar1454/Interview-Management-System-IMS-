@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard - Interview MS</title>
+  <link rel="stylesheet" href="../css/admin/admin-dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">Interview MS</div>
+      <nav>
+        <ul>
+          <li class="active">Dashboard</li>
+          <li><a href="admin-manage-candidates.html" class="side-link">Manage Candidates</a></li>
+          <li><a href="admin-manage-interviewers.html" class="side-link">Manage Interviewers</a></li>
+          <li><a href="admin-manage-jobs.html" class="side-link">Manage Jobs</a></li>
+          <li><a href="admin-schedule.html" class="side-link">Interview Schedule</a></li>
+          <li><a href="admin-reports.html" class="side-link">Reports & Analytics</a></li>
+          <li><a href="admin-settings.html" class="side-link">Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>Admin Dashboard</h1>
+        <div class="header-right">
+          <div class="date-display">Friday, October 24, 2025 at 12:29 PM</div>
+          <button id="addJobBtn" class="btn primary">+ Add New Job</button>
+        </div>
+      </header>
+
+      <section class="metrics">
+        <div class="metric">
+          <div class="metric-icon candidates"></div>
+          <div class="m-content">
+            <div class="m-title">Total Candidates</div>
+            <div class="m-value">1,254</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon interviewers"></div>
+          <div class="m-content">
+            <div class="m-title">Total Interviewers</div>
+            <div class="m-value">82</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon jobs"></div>
+          <div class="m-content">
+            <div class="m-title">Active Job Openings</div>
+            <div class="m-value">45</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon interviews"></div>
+          <div class="m-content">
+            <div class="m-title">Upcoming Interviews</div>
+            <div class="m-value">18</div>
+          </div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon feedback"></div>
+          <div class="m-content">
+            <div class="m-title">Pending Feedbacks</div>
+            <div class="m-value">9</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <div class="card growth-chart">
+          <h3>Candidate Growth Trend</h3>
+          <div style="position: relative; height: 300px; width: 100%;">
+            <canvas id="candidateGrowthChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card status-chart">
+          <h3>Interview Status</h3>
+          <div style="position: relative; height: 300px; width: 100%;">
+            <canvas id="interviewStatusChart"></canvas>
+          </div>
+        </div>
+
+        <div class="card recent-activity">
+          <h3>Recent Activity</h3>
+          <div class="activity-list">
+            <div class="activity-item">
+              <img src="../images/avatar-placeholder.png" alt="" class="activity-avatar">
+              <div class="activity-content">
+                <div class="activity-text"><strong>John Doe</strong> applied for the <a href="#">Senior React Developer</a> position.</div>
+                <div class="activity-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <img src="../images/avatar-placeholder.png" alt="" class="activity-avatar">
+              <div class="activity-content">
+                <div class="activity-text"><strong>Jane Smith's</strong> interview for <a href="#">UX Designer</a> was completed.</div>
+                <div class="activity-time">5 hours ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <img src="../images/avatar-placeholder.png" alt="" class="activity-avatar">
+              <div class="activity-content">
+                <div class="activity-text">A new job posting for <a href="#">Product Manager</a> was created.</div>
+                <div class="activity-time">1 day ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card upcoming">
+          <h3>Upcoming Interviews</h3>
+          <div class="interview-list">
+            <div class="interview-item">
+              <div class="interview-date">
+                <div class="date">25</div>
+                <div class="month">OCT</div>
+              </div>
+              <div class="interview-details">
+                <div class="candidate">Michael Brown</div>
+                <div class="position">Data Scientist</div>
+                <div class="time">10:30 AM</div>
+              </div>
+            </div>
+            <div class="interview-item">
+              <div class="interview-date">
+                <div class="date">25</div>
+                <div class="month">OCT</div>
+              </div>
+              <div class="interview-details">
+                <div class="candidate">Jessica Williams</div>
+                <div class="position">Backend Engineer</div>
+                <div class="time">02:00 PM</div>
+              </div>
+            </div>
+            <div class="interview-item">
+              <div class="interview-date">
+                <div class="date">26</div>
+                <div class="month">OCT</div>
+              </div>
+              <div class="interview-details">
+                <div class="candidate">David Miller</div>
+                <div class="position">DevOps Specialist</div>
+                <div class="time">11:00 AM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin/admin-dashboard.js"></script>
+</body>
+</html>

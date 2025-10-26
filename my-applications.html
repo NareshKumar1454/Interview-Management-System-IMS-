@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Applications - Interview MS</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/my-applications.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand" data-tooltip="Interview Management System">IMS</div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" class="side-link">Dashboard</a></li>
+          <li><a href="profile.html" class="side-link">My Profile</a></li>
+          <li><a href="job-openings.html" class="side-link">Jobs</a></li>
+          <li class="active">My Applications</li>
+          <li><a href="interviews.html" class="side-link">Interviews</a></li>
+          <li><a href="results.html" class="side-link">Results</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="logout-cta">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>My Applications</h1>
+        <div class="header-actions">
+          <div class="icons"></div>
+        </div>
+      </header>
+
+      <section class="applications-area">
+        <div class="app-controls">
+          <input id="searchInput" type="search" placeholder="Filter by job title..." />
+          <select id="statusFilter">
+            <option value="all">All Statuses</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview Scheduled">Interview Scheduled</option>
+            <option value="Shortlisted">Shortlisted</option>
+            <option value="Offer Received">Offer Received</option>
+            <option value="Rejected">Rejected</option>
+            <option value="Withdrawn">Withdrawn</option>
+          </select>
+        </div>
+
+        <div class="applications-card card">
+          <table id="appsTable" class="apps-table">
+            <thead>
+              <tr>
+                <th>Job Title</th>
+                <th>Department</th>
+                <th>Applied Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- rows injected by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="recommended-title">Recommended Jobs</h2>
+        <div class="recommended-grid">
+          <!-- cards injected by JS -->
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <div id="modal" class="modal" aria-hidden="true"></div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/my-applications.js"></script>
+</body>
+</html>
