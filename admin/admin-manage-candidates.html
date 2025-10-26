@@ -5,25 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manage Candidates - Admin Dashboard</title>
   <link rel="stylesheet" href="../css/admin/admin-manage-candidates.css">
+  <link rel="stylesheet" href="../css/admin/sidebar.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="app">
     <aside class="sidebar">
-      <div class="brand">Interview MS</div>
+      <div class="brand">IMS</div>
       <nav>
-        <ul>
-          <li><a href="admin-dashboard.html" class="side-link">Dashboard</a></li>
-          <li class="active">Manage Candidates</li>
-          <li><a href="admin-manage-interviewers.html" class="side-link">Manage Interviewers</a></li>
-          <li><a href="admin-manage-jobs.html" class="side-link">Manage Jobs</a></li>
-          <li><a href="admin-schedule.html" class="side-link">Interview Schedule</a></li>
-          <li><a href="admin-reports.html" class="side-link">Reports & Analytics</a></li>
-          <li><a href="admin-settings.html" class="side-link">Settings</a></li>
+        <ul class="nav-list">
+          <li><a href="admin-dashboard.html" class="nav-link"><span class="icon">🏠</span><span class="label">Dashboard</span></a></li>
+          <li><a href="admin-manage-candidates.html" class="nav-link active"><span class="icon">👥</span><span class="label">Candidates</span></a></li>
+          <li><a href="admin-manage-interviewers.html" class="nav-link"><span class="icon">🧑‍💼</span><span class="label">Interviewers</span></a></li>
+          <li><a href="admin-manage-jobs.html" class="nav-link"><span class="icon">💼</span><span class="label">Jobs</span></a></li>
+          <li><a href="admin-interviews.html" class="nav-link"><span class="icon">📅</span><span class="label">Schedule</span></a></li>
+          <li><a href="admin-reports.html" class="nav-link"><span class="icon">📊</span><span class="label">Reports</span></a></li>
+          <!-- <li><a href="admin-settings.html" class="nav-link"><span class="icon">⚙️</span><span class="label">Settings</span></a></li> -->
         </ul>
       </nav>
-      <div class="sidebar-footer">
-        <button id="logoutBtn" class="logout-cta">Logout</button>
+      <div class="sidebar-footer user-block">
+        <img src="../images/avatar.png" alt="Admin" class="avatar-sm">
+        <div class="user-meta">
+          <div class="user-name">Admin User</div>
+          <a id="logoutBtn" class="logout-link">Log Out</a>
+        </div>
       </div>
     </aside>
 
@@ -32,10 +37,72 @@
         <h1>Manage Candidates</h1>
       </header>
 
-      <!-- Content will be implemented in next phase -->
-      <div class="content">
-        <p>Candidate management interface will be implemented here...</p>
+      <div class="card controls">
+        <div class="controls-left">
+          <input id="searchInput" type="search" placeholder="Search by name or email..." />
+          <select id="statusFilter">
+            <option value="all">All Statuses</option>
+            <option value="Active">Active</option>
+            <option value="Pending">Pending</option>
+            <option value="Blocked">Blocked</option>
+          </select>
+        </div>
+        <div class="controls-right">
+          <button id="addCandidateBtn" class="btn primary">+ Add Candidate</button>
+        </div>
       </div>
+
+      <div class="card table-card">
+        <div class="table-responsive">
+          <table id="candidatesTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Candidate</th>
+                <th>Applied Jobs</th>
+                <th>Registration Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- rows inserted by JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <div id="tableInfo" class="table-info"></div>
+          <div class="pagination">
+            <button id="prevPage" class="pag-btn">Previous</button>
+            <div id="pageNumbers" class="pages"></div>
+            <button id="nextPage" class="pag-btn">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add / Edit / View Modal -->
+      <div id="candidateModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+          <h3 id="modalTitle">Add Candidate</h3>
+          <form id="candidateForm">
+            <label><span>Name</span><input type="text" id="cName" required></label>
+            <label><span>Email</span><input type="email" id="cEmail" required></label>
+            <label><span>Applied Jobs</span><input type="number" id="cApplied" min="0" value="0"></label>
+            <label><span>Status</span>
+              <select id="cStatus">
+                <option>Active</option>
+                <option>Pending</option>
+                <option>Blocked</option>
+              </select>
+            </label>
+            <div class="modal-actions">
+              <button type="button" id="cancelModal" class="btn">Cancel</button>
+              <button type="submit" class="btn primary" id="saveCandidate">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </main>
   </div>
 

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manage Interviewers - Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/admin/admin-manage-interviewers.css">
+  <link rel="stylesheet" href="../css/admin/sidebar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">IMS</div>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="admin-dashboard.html" class="nav-link"><span class="icon">🏠</span><span class="label">Dashboard</span></a></li>
+          <li><a href="admin-manage-candidates.html" class="nav-link"><span class="icon">👥</span><span class="label">Candidates</span></a></li>
+          <li><a href="admin-manage-interviewers.html" class="nav-link active"><span class="icon">🧑‍💼</span><span class="label">Interviewers</span></a></li>
+          <li><a href="admin-manage-jobs.html" class="nav-link"><span class="icon">💼</span><span class="label">Jobs</span></a></li>
+          <li><a href="admin-interviews.html" class="nav-link"><span class="icon">📅</span><span class="label">Schedule</span></a></li>
+          <li><a href="admin-reports.html" class="nav-link"><span class="icon">📊</span><span class="label">Reports</span></a></li>
+          <!-- <li><a href="admin-settings.html" class="nav-link"><span class="icon">⚙️</span><span class="label">Settings</span></a></li> -->
+        </ul>
+      </nav>
+      <div class="sidebar-footer user-block">
+        <img src="../images/avatar.png" alt="Admin" class="avatar-sm">
+        <div class="user-meta">
+          <div class="user-name">Admin User</div>
+          <a id="logoutBtn" class="logout-link">Log Out</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>Manage Interviewers</h1>
+        <div class="header-actions">
+          <button id="addInterviewerBtn" class="btn primary">+ Add Interviewer</button>
+        </div>
+      </header>
+
+      <section class="metrics">
+        <div class="metric">
+          <div class="m-title">Total Interviewers</div>
+          <div class="m-value" id="totalInterviewers">0</div>
+        </div>
+        <div class="metric">
+          <div class="m-title">Active Interviewers</div>
+          <div class="m-value" id="activeInterviewers">0</div>
+        </div>
+        <div class="metric">
+          <div class="m-title">Interviews Today</div>
+          <div class="m-value" id="interviewsToday">0</div>
+        </div>
+      </section>
+
+      <div class="card controls">
+        <div class="controls-left">
+          <input id="searchInput" type="search" placeholder="Search interviewers..." />
+          <select id="deptFilter">
+            <option value="all">All Departments</option>
+            <option>Engineering</option>
+            <option>Product</option>
+            <option>Design</option>
+            <option>Marketing</option>
+            <option>HR</option>
+          </select>
+          <select id="statusFilter">
+            <option value="all">All Status</option>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
+        </div>
+        <div class="controls-right">
+          <div id="resultCount" class="muted">Showing 0 results</div>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <div class="table-responsive">
+          <table id="interviewersTable">
+            <thead>
+              <tr>
+                <th>Interviewer</th>
+                <th>Department / Role</th>
+                <th>Email</th>
+                <th>Total Interviews</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- inserted by JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <div id="pageInfo" class="table-info"></div>
+          <div class="pagination">
+            <button id="prevPage" class="pag-btn">Previous</button>
+            <div id="pageNumbers" class="pages"></div>
+            <button id="nextPage" class="pag-btn">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div id="interviewerModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+          <h3 id="modalTitle">Add Interviewer</h3>
+          <form id="interviewerForm">
+            <label><span>Name</span><input type="text" id="iName" required></label>
+            <label><span>Department</span>
+              <select id="iDept">
+                <option>Engineering</option>
+                <option>Product</option>
+                <option>Design</option>
+                <option>Marketing</option>
+                <option>HR</option>
+              </select>
+            </label>
+            <label><span>Role</span><input type="text" id="iRole"></label>
+            <label><span>Email</span><input type="email" id="iEmail" required></label>
+            <label><span>Total Interviews</span><input type="number" id="iTotal" min="0" value="0"></label>
+            <label><span>Status</span>
+              <select id="iStatus">
+                <option>Active</option>
+                <option>Inactive</option>
+              </select>
+            </label>
+            <div class="modal-actions">
+              <button type="button" id="cancelModal" class="btn">Cancel</button>
+              <button type="submit" class="btn primary" id="saveInterviewer">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin/admin-manage-interviewers.js"></script>
+</body>
+</html>

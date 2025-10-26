@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - Admin Panel</title>
+    <link rel="stylesheet" href="../css/admin/admin-reports.css">
+    <link rel="stylesheet" href="../css/admin/sidebar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">IMS</div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="admin-dashboard.html" class="nav-link"><span class="icon">🏠</span><span class="label">Dashboard</span></a></li>
+                    <li><a href="admin-manage-candidates.html" class="nav-link"><span class="icon">👥</span><span class="label">Candidates</span></a></li>
+                    <li><a href="admin-manage-interviewers.html" class="nav-link"><span class="icon">🧑‍💼</span><span class="label">Interviewers</span></a></li>
+                    <li><a href="admin-manage-jobs.html" class="nav-link"><span class="icon">💼</span><span class="label">Jobs</span></a></li>
+                    <li><a href="admin-interviews.html" class="nav-link"><span class="icon">📅</span><span class="label">Interviews</span></a></li>
+                    <li><a href="admin-reports.html" class="nav-link active"><span class="icon">📊</span><span class="label">Reports</span></a></li>
+                    <!-- <li><a href="admin-settings.html" class="nav-link"><span class="icon">⚙️</span><span class="label">Settings</span></a></li> -->
+                </ul>
+            </nav>
+            <div class="sidebar-footer user-block">
+                <img src="../images/avatar.png" alt="Admin" class="avatar-sm">
+                <div class="user-meta">
+                    <div class="user-name">Admin User</div>
+                    <a id="logoutBtn" class="logout-link">Log Out</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="main-header">
+                <div class="header-left">
+                    <h1>Reports & Analytics</h1>
+                </div>
+                <div class="header-right">
+                    <select id="timeRange" class="select-range">
+                        <option value="7">Last 7 Days</option>
+                        <option value="30">Last 30 Days</option>
+                        <option value="90">Last 3 Months</option>
+                        <option value="180">Last 6 Months</option>
+                        <option value="365">Last Year</option>
+                    </select>
+                    <button class="btn secondary" onclick="exportToPDF()">📄 PDF</button>
+                    <button class="btn success" onclick="exportToExcel()">📊 Excel</button>
+                    <button class="btn neutral" onclick="printReport()">🖨️ Print</button>
+                </div>
+            </header>
+
+            <section class="metrics">
+                <div class="metric interviews">
+                    <div class="metric-content">
+                        <div class="metric-title">Total Interviews</div>
+                        <div class="metric-value" id="totalInterviews">234</div>
+                        <div class="metric-change positive">↑ 12% vs last period</div>
+                    </div>
+                </div>
+                <div class="metric hired">
+                    <div class="metric-content">
+                        <div class="metric-title">Candidates Hired</div>
+                        <div class="metric-value" id="candidatesHired">48</div>
+                        <div class="metric-change positive">↑ 8% vs last period</div>
+                    </div>
+                </div>
+                <div class="metric jobs">
+                    <div class="metric-content">
+                        <div class="metric-title">Jobs Open</div>
+                        <div class="metric-value" id="jobsOpen">15</div>
+                        <div class="metric-change negative">↓ 3% vs last period</div>
+                    </div>
+                </div>
+                <div class="metric interviewers">
+                    <div class="metric-content">
+                        <div class="metric-title">Active Interviewers</div>
+                        <div class="metric-value" id="activeInterviewers">28</div>
+                        <div class="metric-change positive">↑ 5% vs last period</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h2>Interviews by Department</h2>
+                    <canvas id="departmentChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h2>Candidate Outcomes</h2>
+                    <canvas id="outcomesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container full-width">
+                <h2>Monthly Interview Trends</h2>
+                <canvas id="trendsChart"></canvas>
+            </div>
+
+            <div class="table-section">
+                <h2>Job Performance Breakdown</h2>
+                <div class="table-container">
+                    <table id="performanceTable">
+                        <thead>
+                            <tr>
+                                <th>JOB TITLE</th>
+                                <th>INTERVIEWS CONDUCTED</th>
+                                <th>CANDIDATES HIRED</th>
+                                <th>AVG INTERVIEW SCORE</th>
+                                <th>INTERVIEWER RATING</th>
+                                <th>SUCCESS RATE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/admin/admin-reports.js"></script>
+</body>
+</html>

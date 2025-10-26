@@ -12,14 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Check if user is in the correct section based on their role
   const currentPath = window.location.pathname;
   const isInInterviewerSection = currentPath.includes('/interviewer/');
-  const isInCandidateSection = !isInInterviewerSection && !currentPath.includes('/admin/');
+  const isInAdminSection = currentPath.includes('/admin/');
+  const isInCandidateSection = !isInInterviewerSection && !isInAdminSection;
 
-  if (user.role === 'Candidate' && isInInterviewerSection) {
+  if (user.role === 'Candidate' && (isInInterviewerSection || isInAdminSection)) {
     window.location.href = '../dashboard.html';
     return;
   }
-  if (user.role === 'Interviewer' && isInCandidateSection) {
+  if (user.role === 'Interviewer' && (isInCandidateSection || isInAdminSection)) {
     window.location.href = 'interviewer/interviewer-dashboard.html';
+    return;
+  }
+  if (user.role === 'Admin' && !isInAdminSection) {
+    window.location.href = 'admin/admin-dashboard.html';
     return;
   }
 

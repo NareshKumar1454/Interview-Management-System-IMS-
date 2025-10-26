@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manage Jobs - Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/admin/admin-manage-jobs.css">
+  <link rel="stylesheet" href="../css/admin/sidebar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">IMS</div>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="admin-dashboard.html" class="nav-link"><span class="icon">🏠</span><span class="label">Dashboard</span></a></li>
+          <li><a href="admin-manage-candidates.html" class="nav-link"><span class="icon">👥</span><span class="label">Candidates</span></a></li>
+          <li><a href="admin-manage-interviewers.html" class="nav-link"><span class="icon">🧑‍💼</span><span class="label">Interviewers</span></a></li>
+          <li><a href="admin-manage-jobs.html" class="nav-link active"><span class="icon">💼</span><span class="label">Jobs</span></a></li>
+          <li><a href="admin-interviews.html" class="nav-link"><span class="icon">📅</span><span class="label">Interviews</span></a></li>
+          <li><a href="admin-reports.html" class="nav-link"><span class="icon">📊</span><span class="label">Reports</span></a></li>
+          <!-- <li><a href="admin-settings.html" class="nav-link"><span class="icon">⚙️</span><span class="label">Settings</span></a></li> -->
+        </ul>
+      </nav>
+      <div class="sidebar-footer user-block">
+        <img src="../images/avatar.png" alt="Admin" class="avatar-sm">
+        <div class="user-meta">
+          <div class="user-name">Admin User</div>
+          <a id="logoutBtn" class="logout-link">Log Out</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div class="header-left">
+          <h1>Manage Jobs</h1>
+        </div>
+        <div class="header-right">
+          <button id="addJobBtn" class="btn primary">+ Add Job</button>
+        </div>
+      </header>
+
+      <section class="metrics">
+        <div class="metric active-jobs">
+          <div class="metric-icon">📋</div>
+          <div class="metric-content">
+            <div class="metric-title">Total Active Jobs</div>
+            <div class="metric-value" id="totalActiveJobs">24</div>
+          </div>
+        </div>
+        <div class="metric closed-jobs">
+          <div class="metric-icon">🔒</div>
+          <div class="metric-content">
+            <div class="metric-title">Closed Jobs</div>
+            <div class="metric-value" id="totalClosedJobs">12</div>
+          </div>
+        </div>
+        <div class="metric applications">
+          <div class="metric-icon">👥</div>
+          <div class="metric-content">
+            <div class="metric-title">Total Applications</div>
+            <div class="metric-value" id="totalApplications">1,287</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="filters">
+        <div class="search-box">
+          <input type="search" id="jobSearch" placeholder="Search by Job Title or ID...">
+        </div>
+        <div class="filter-group">
+          <select id="deptFilter">
+            <option value="all">All Departments</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
+            <option value="Product">Product</option>
+            <option value="Design">Design</option>
+          </select>
+          <select id="typeFilter">
+            <option value="all">All Job Types</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+          </select>
+          <select id="statusFilter">
+            <option value="all">All Statuses</option>
+            <option value="Open">Open</option>
+            <option value="Closed">Closed</option>
+            <option value="Draft">Draft</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table id="jobsTable">
+          <thead>
+            <tr>
+              <th>JOB ID</th>
+              <th>JOB TITLE</th>
+              <th>DEPARTMENT</th>
+              <th>OPENINGS</th>
+              <th>APPLICATIONS</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Job Modal -->
+      <div id="jobModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+          <h3 id="modalTitle">Add New Job</h3>
+          <form id="jobForm">
+            <div class="form-group">
+              <label>Job Title</label>
+              <input type="text" id="jobTitle" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Department</label>
+                <select id="jobDept" required>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Sales">Sales</option>
+                  <option value="Product">Product</option>
+                  <option value="Design">Design</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Job Type</label>
+                <select id="jobType" required>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Part-time">Part-time</option>
+                  <option value="Contract">Contract</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Number of Openings</label>
+                <input type="number" id="jobOpenings" min="1" value="1" required>
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <select id="jobStatus" required>
+                  <option value="Open">Open</option>
+                  <option value="Closed">Closed</option>
+                  <option value="Draft">Draft</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Job Description</label>
+              <textarea id="jobDesc" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+              <label>Requirements</label>
+              <textarea id="jobReq" rows="4" required></textarea>
+            </div>
+            <div class="modal-actions">
+              <button type="button" class="btn" id="cancelJob">Cancel</button>
+              <button type="submit" class="btn primary">Save Job</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin/admin-manage-jobs.js"></script>
+</body>
+</html>

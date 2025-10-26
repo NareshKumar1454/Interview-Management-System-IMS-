@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scheduling - Admin Panel</title>
+    <link rel="stylesheet" href="../css/admin/admin-interviews.css">
+    <link rel="stylesheet" href="../css/admin/sidebar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">IMS</div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="admin-dashboard.html" class="nav-link"><span class="icon">🏠</span><span class="label">Dashboard</span></a></li>
+                    <li><a href="admin-manage-candidates.html" class="nav-link"><span class="icon">👥</span><span class="label">Candidates</span></a></li>
+                    <li><a href="admin-manage-interviewers.html" class="nav-link"><span class="icon">🧑‍💼</span><span class="label">Interviewers</span></a></li>
+                    <li><a href="admin-manage-jobs.html" class="nav-link"><span class="icon">💼</span><span class="label">Jobs</span></a></li>
+                    <li><a href="admin-interviews.html" class="nav-link active"><span class="icon">📅</span><span class="label">Interviews</span></a></li>
+                    <li><a href="admin-reports.html" class="nav-link"><span class="icon">📊</span><span class="label">Reports</span></a></li>
+                    <!-- <li><a href="admin-settings.html" class="nav-link"><span class="icon">⚙️</span><span class="label">Settings</span></a></li> -->
+                </ul>
+            </nav>
+            <div class="sidebar-footer user-block">
+                <img src="../images/avatar.png" alt="Admin" class="avatar-sm">
+                <div class="user-meta">
+                    <div class="user-name">Admin User</div>
+                    <a id="logoutBtn" class="logout-link">Log Out</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="main-header">
+                <div class="header-left">
+                    <h1>Interview Scheduling</h1>
+                </div>
+                <div class="header-right">
+                    <button id="calendarViewBtn" class="btn secondary">📅 Calendar View</button>
+                    <button id="scheduleInterviewBtn" class="btn primary">+ Schedule New Interview</button>
+                </div>
+            </header>
+
+            <section class="metrics">
+                <div class="metric scheduled">
+                    <div class="metric-icon">📅</div>
+                    <div class="metric-content">
+                        <div class="metric-title">Scheduled</div>
+                        <div class="metric-value" id="scheduledCount">18</div>
+                    </div>
+                </div>
+                <div class="metric completed">
+                    <div class="metric-icon">✅</div>
+                    <div class="metric-content">
+                        <div class="metric-title">Completed</div>
+                        <div class="metric-value" id="completedCount">45</div>
+                    </div>
+                </div>
+                <div class="metric cancelled">
+                    <div class="metric-icon">❌</div>
+                    <div class="metric-content">
+                        <div class="metric-title">Cancelled</div>
+                        <div class="metric-value" id="cancelledCount">7</div>
+                    </div>
+                </div>
+                <div class="metric today">
+                    <div class="metric-icon">⏰</div>
+                    <div class="metric-content">
+                        <div class="metric-title">Today</div>
+                        <div class="metric-value" id="todayCount">5</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="filters">
+                <select id="deptFilter">
+                    <option value="all">All Departments</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Product">Product</option>
+                    <option value="Design">Design</option>
+                </select>
+                <select id="jobTitleFilter">
+                    <option value="all">All Job Titles</option>
+                </select>
+                <select id="interviewerFilter">
+                    <option value="all">All Interviewers</option>
+                </select>
+                <input type="date" id="dateFilter" class="date-filter">
+            </div>
+
+            <div class="table-container">
+                <table id="interviewsTable">
+                    <thead>
+                        <tr>
+                            <th>INTERVIEW ID</th>
+                            <th>CANDIDATE NAME</th>
+                            <th>JOB TITLE</th>
+                            <th>INTERVIEWER</th>
+                            <th>DATE & TIME</th>
+                            <th>MODE</th>
+                            <th>STATUS</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Schedule Interview Modal -->
+    <div id="interviewModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Schedule New Interview</h3>
+            <form id="interviewForm">
+                <div class="form-group">
+                    <label>Candidate</label>
+                    <select id="candidateSelect" required>
+                        <option value="">Select Candidate</option>
+                        <option value="">Koushik Edla</option>
+                        <option value="">Varad Vinayak</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Job Position</label>
+                    <select id="jobSelect" required>
+                        <option value="">Select Job Position</option>
+                        <option value="">Software Developer</option>
+                        <option value="">Software trainee</option>
+                        <option value="">Technical Consultant</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Interviewer</label>
+                    <select id="interviewerSelect" required>
+                        <option value="">Select Interviewer</option>
+                        <option value="">Nandini Devarapu</option>
+                        <option value="">Yuvraj chandra</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="interviewDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="time" id="interviewTime" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Duration</label>
+                    <select id="interviewDuration" required>
+                        <option value="30">30 minutes</option>
+                        <option value="45">45 minutes</option>
+                        <option value="60" selected>1 hour</option>
+                        <option value="90">1.5 hours</option>
+                        <option value="120">2 hours</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mode</label>
+                    <select id="interviewMode" required>
+                        <option value="online">Online</option>
+                        <option value="in-person">In-person</option>
+                    </select>
+                </div>
+                <div class="form-group" id="locationGroup">
+                    <label>Location/Meeting Link</label>
+                    <input type="text" id="interviewLocation" placeholder="Enter location or meeting link">
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="interviewNotes" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn" id="cancelInterview">Cancel</button>
+                    <button type="submit" class="btn primary">Schedule Interview</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/admin/admin-interviews.js"></script>
+</body>
+</html>
